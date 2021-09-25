@@ -10,7 +10,10 @@ export const config: webpack.Configuration = {
     output: {
         path: __dirname,
         filename: 'index.js',
-        libraryTarget: 'commonjs2', // module.export = 形式で出力
+        library: {
+            // module.export = 形式で出力
+            type: 'commonjs2',
+        },
     },
     module: {
         rules: [
