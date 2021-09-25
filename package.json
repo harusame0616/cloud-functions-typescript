@@ -1,0 +1,39 @@
+{
+  "name": "cloud-functions-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm-run-all --parallel watch:server watch:build",
+    "watch:build": "webpack --watch",
+    "watch:server": "onchange -ik -p 100 \"./**/*.js\" -- npm run dev-server",
+    "dev-server": "functions-framework --target=handler",
+    "bundle": "NODE_ENV=production webpack",
+    "pack": "node pack.js",
+    "build": "npm-run-all --sequential bundle pack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/harusame0616/cloud-functions-typescript.git"
+  },
+  "author": "Masaharu Nemoto <nemoto.masaharu.it@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/harusame0616/cloud-functions-typescript/issues"
+  },
+  "homepage": "https://github.com/harusame0616/cloud-functions-typescript#readme",
+  "devDependencies": {
+    "@google-cloud/functions-framework": "^1.9.0",
+    "@types/webpack-node-externals": "^2.5.2",
+    "@webpack-cli/generators": "^2.3.0",
+    "archiver": "^5.3.0",
+    "npm-run-all": "^4.1.5",
+    "onchange": "^7.1.0",
+    "ts-loader": "^9.2.6",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.3",
+    "webpack": "^5.54.0",
+    "webpack-cli": "^4.8.0",
+    "webpack-node-externals": "^3.0.0"
+  }
+}
